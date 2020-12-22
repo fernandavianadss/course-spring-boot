@@ -1,5 +1,5 @@
 # Projeto Curso de Spring Boot
-Implementação de web services
+Implementação de api rest
 
 ### Tecnologias usadas:
 `Spring Boot`, `JPA`, `Hibernate`
