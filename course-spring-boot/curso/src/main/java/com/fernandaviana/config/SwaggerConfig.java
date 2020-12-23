@@ -27,7 +27,7 @@ public class SwaggerConfig {
 	private ApiInfo metaInfo() {
 
 		return new ApiInfoBuilder()
-				.title("Web Services").description("Crud Completo").version("1.0.0")
+				.title("REST API").description("Controle de pedidos").version("1.0.0")
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
 				.build();
