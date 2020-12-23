@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fernandaviana.entities.Product;
 import com.fernandaviana.services.ProductService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping (value = "/products")
 public class ProductResource {
@@ -20,6 +22,7 @@ public class ProductResource {
 	private ProductService service;
 	
 	@GetMapping
+	@ApiOperation(value = "Retorna uma lista de produtos")
 	public ResponseEntity<List<Product>> findAll(){
 		
 		List<Product> list = service.findAll();
@@ -28,6 +31,7 @@ public class ProductResource {
 	}
 	
 	@GetMapping(value="/{id}")
+	@ApiOperation(value = "Retorna um produto único")
 	public ResponseEntity<Product> findById(@PathVariable Long id){
 		Product obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);

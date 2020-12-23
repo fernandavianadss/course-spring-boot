@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fernandaviana.entities.Order;
 import com.fernandaviana.services.OrderService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping (value = "/orders")
 public class OrderResource {
@@ -20,6 +22,7 @@ public class OrderResource {
 	private OrderService service;
 	
 	@GetMapping
+	@ApiOperation(value = "Retorna uma lista de pedidos")
 	public ResponseEntity<List<Order>> findAll(){
 		
 		List<Order> list = service.findAll();
@@ -28,6 +31,7 @@ public class OrderResource {
 	}
 	
 	@GetMapping(value="/{id}")
+	@ApiOperation(value = "Retorna um pedido único")
 	public ResponseEntity<Order> findById(@PathVariable Long id){
 		Order obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);

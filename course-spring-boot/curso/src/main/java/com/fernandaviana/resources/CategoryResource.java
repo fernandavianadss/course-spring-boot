@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fernandaviana.entities.Category;
 import com.fernandaviana.services.CategoryService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping (value = "/categories")
 public class CategoryResource {
@@ -20,6 +22,7 @@ public class CategoryResource {
 	private CategoryService service;
 	
 	@GetMapping
+	@ApiOperation(value = "Retorna uma lista de categorias")
 	public ResponseEntity<List<Category>> findAll(){
 		
 		List<Category> list = service.findAll();
@@ -28,6 +31,7 @@ public class CategoryResource {
 	}
 	
 	@GetMapping(value="/{id}")
+	@ApiOperation(value = "Retorna uma categoria única")
 	public ResponseEntity<Category> findById(@PathVariable Long id){
 		Category obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
